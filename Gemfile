@@ -61,3 +61,5 @@ gem 'carrierwave'
 
 gem 'fog'
 gem 'dotenv-rails'
+
+gem 'activeadmin'

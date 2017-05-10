@@ -1,0 +1,38 @@
+<%= form_for(pokemon) do |f| %>
+  <% if pokemon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pokemon.errors.count, "error") %> prohibited this pokemon from being saved:</h2>
+
+      <ul>
+      <% pokemon.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :level %>
+    <%= f.number_field :level %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pokemon_type %>
+    <%= select_tag 'pokemon_type',
+      options_for_select( @pokemon_types.collect{ |pt| [pt.name, pt.id] }) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nature %>
+    <%= f.text_field :nature %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
